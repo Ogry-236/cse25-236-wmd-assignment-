@@ -1,8 +1,13 @@
+/* ============================================================
+   BASE STYLES
+   Sets up the animated gradient background, default font,
+   text color, and full-height flex column layout
+   ============================================================ */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
   background-size: 400% 400%;
-  animation: movingBackground 12s ease infinite;
+  animation: movingBackground 12s ease infinite; /* Triggers the gradient animation */
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -10,21 +15,29 @@ body {
   margin: 0;
 }
 
+/* Smoothly cycles the gradient background position */
 @keyframes movingBackground {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+
+/* ============================================================
+   SITE HEADER
+   Flexbox row with logo on the left and nav/actions on the
+   right; semi-transparent frosted background
+   ============================================================ */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 30px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08); /* Subtle frosted-glass effect */
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Gold site title / logo text */
 .site-header h1 {
   color: gold;
   font-size: 1.8rem;
@@ -33,7 +46,10 @@ body {
 }
 
 
-
+/* ============================================================
+   NAVIGATION BAR
+   Horizontally scrollable pill-link nav; sits below the header
+   ============================================================ */
 .bjc-nav {
   background: rgba(0, 0, 0, 0.25);
   padding: 10px 20px;
@@ -43,6 +59,7 @@ body {
   justify-content: center;
 }
 
+/* Individual nav links styled as outlined gold pills */
 .bjc-nav a {
   text-decoration: none;
   color: gold;
@@ -56,26 +73,40 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+/* Filled gold pill on hover or when the link is the current page */
 .bjc-nav a:hover,
 .bjc-nav a.active {
   background: gold;
-  color: #0f2027;
+  color: #0f2027; /* Dark text for contrast on gold background */
 }
 
+
+/* ============================================================
+   MAIN CONTENT AREA
+   Centered, max-width container that grows to fill remaining
+   vertical space (flex: 1 pushes the footer to the bottom)
+   ============================================================ */
 main {
   padding: 40px 20px 60px;
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
-  flex: 1;
+  flex: 1; /* Fills remaining height so footer stays at bottom */
 }
 
+
+/* ============================================================
+   PAGE TITLE & GOLD DIVIDER
+   ============================================================ */
+
+/* Centered gold heading used at the top of each page section */
 .page-title {
   color: gold;
   text-align: center;
   margin-bottom: 8px;
 }
 
+/* Short decorative gold underline beneath the page title */
 .gold-line {
   width: 60px;
   height: 3px;
@@ -84,42 +115,68 @@ main {
   margin: 12px auto 28px;
 }
 
+
+/* ============================================================
+   GLASS CARD
+   General-purpose frosted-glass content card with a subtle
+   gold border; used as the base for all content blocks
+   ============================================================ */
 .glass-card {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 215, 0, 0.25);
   border-radius: 14px;
   padding: 20px;
-  color: #f5e7a3;
+  color: #f5e7a3; /* Warm off-white for readable body text */
   margin-bottom: 20px;
 }
 
+/* Job listing variant — adds a solid gold left accent stripe */
 .job-card {
   border-left: 4px solid gold;
 }
 
+
+/* ============================================================
+   CATEGORY PILL
+   Inline tag/badge used to label categories or filters
+   ============================================================ */
 .category-pill {
   display: inline-block;
   margin: 5px;
   padding: 8px 16px;
-  background: rgba(255, 215, 0, 0.1);
+  background: rgba(255, 215, 0, 0.1); /* Very subtle gold tint */
   border: 1px solid gold;
   border-radius: 25px;
   color: gold;
   font-weight: bold;
 }
 
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+/* Primary call-to-action button — solid gold fill */
 .btn-gold {
   background: gold;
-  color: #0f2027;
+  color: #0f2027; /* Dark text for contrast */
   font-weight: bold;
   border: none;
 }
 
+/* Slightly darker gold on hover for visual feedback */
 .btn-gold:hover {
   background: #e6c200;
   color: #0f2027;
 }
 
+
+/* ============================================================
+   FORM CONTROLS
+   Inputs and selects styled to match the dark/gold theme
+   ============================================================ */
+
+/* Semi-transparent dark input backgrounds with gold border */
 .form-control,
 .form-select {
   background: rgba(255, 255, 255, 0.1);
@@ -127,16 +184,23 @@ main {
   color: #ffffff;
 }
 
+/* Dimmed placeholder text so it doesn't compete with input */
 .form-control::placeholder { color: rgba(255, 255, 255, 0.6); }
 
+/* Brightened background and full gold border when focused */
 .form-control:focus,
 .form-select:focus {
   background: rgba(255, 255, 255, 0.15);
   border-color: gold;
   color: #210909;
-  box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.25);
+  box-shadow: 0 0 0 0.15rem rgba(255, 215, 0, 0.25); /* Soft gold focus ring */
 }
 
+
+/* ============================================================
+   SITE FOOTER
+   Slim, centered footer pinned to the bottom of the viewport
+   ============================================================ */
 .site-footer {
   background: rgba(0, 0, 0, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -145,9 +209,14 @@ main {
   font-size: 0.75rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255, 215, 0, 0.7);
+  color: rgba(255, 215, 0, 0.7); /* Muted gold for a subtle footer tone */
 }
 
+
+/* ============================================================
+   RESPONSIVE — SMALL SCREENS (max-width: 540px)
+   Scales down prominent text so it fits on narrow viewports
+   ============================================================ */
 @media (max-width: 540px) {
   .site-header h1 { font-size: 1.4rem; }
   .page-title { font-size: 1.5rem; }
